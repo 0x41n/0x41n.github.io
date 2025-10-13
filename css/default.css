@@ -207,8 +207,8 @@ aside{
 	color:var(--grayout);
 	border-left:solid 2px var(--line);
 	overflow-x:hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
+	white-space:nowrap;
+	text-overflow:ellipsis;
 }
 .toc a:hover{
 	color:var(--text);
@@ -250,21 +250,31 @@ aside{
 	cursor:pointer;
 }
 #tab{
+	width:100%;
 	display:flex;
 	border-bottom:solid 1px var(--line);
+	overflow-x:scroll;
+	margin-top:-3em;
 }
 #tab a{
 	opacity:.5;
 	padding:1em;
-	margin-top:-3em;
 	color:var(--text);
 	user-select:none;
 	text-decoration:none;
+	flex:0 0 auto;
 }
 #tab a:hover, #tab a.active{
 	opacity:1;
 	cursor:pointer;
-	box-shadow:0 1px 0 0 var(--a);
+	border-bottom:solid 1px var(--a);
+}
+.noresult{
+	width:100%;
+	padding:2em 0;
+	color:var(--grayout);
+	text-align:center;
+	grid-column:1 / -1
 }
 #result{
 	padding:1em 0;
