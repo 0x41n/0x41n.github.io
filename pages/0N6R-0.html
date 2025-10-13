@@ -1,0 +1,67 @@
+<!DOCTYPE html><html><head><title>SPCファイルをつくる</title><meta charset=UTF-8><meta property="og:title"content="SPCファイルをつくる"><meta property="og:description"content="スーパーファミコンの曲データをつくりたい。"><meta property="og:url"content="https://0x41n.github.io/pages/0N6R-0.html"><meta property="og:image"content="https://0x41n.github.io/file/img/0x41n.png"><meta property="og:site_name" content="メモおきば"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@0x41n"/></head><body><main id=content></main><script type=markdown id=source>---
+title: SPCファイルをつくる
+created: 2023-06-27
+updated: 2025-10-09
+tags: make,sound
+list: true
+---
+スーパーファミコンの曲データをつくりたい。
+[more]
+SPC700についての説明は省略。[Wikipedia](https://ja.wikipedia.org/wiki/SPU#SPC700)とかで見てください。
+## BRR
+SPCを作るにあたってBRRファイルを用意する必要がある。
+(WAVとかMP3みたいな音色ファイル)
+自分が最も楽だと思っているのは
+サウンドフォントエディタの[Polyphone](https://www.polyphone-soundfonts.com/)とVSTである[C700](http://picopicose.com/software.html)を使う方法。
+どちらも現時点では無料。
+
+PolyphoneはWAV編集ツールとして使う。
+ループの設定がしやすいのと、
+オートループとかトランスポーズ(ピッチ変更)もできるから
+微調整がかなり簡単。
+
+C700はループ設定したWAVを放り込むだけでBRRを作ってくれる。ありがたい！
+VSTだから各種DAW上で操作する必要がある。
+## SPC
+SPCを作っていく。
+
+普段DAWで曲を打ち込んでいる人はC700の録音機能で作るのが一番楽だと思う。
+欠点は、鳴った音をそのままSPCとして書き出すため、
+容量オーバーで演奏が止まってしまうことが多いこと。
+長い曲を書き出したい場合は、
+BRRのサイズを小さくするなどして対策する必要がある。
+
+C700のサイトにもあるように、
+録音機能を使うには「playercode.bin」を読み込ませる必要があるので注意。
+こういうSPCが作れる。
+[[https://www.youtube.com/embed/vPq7MzFNB6A]]
+オートメンションとかを巧みに使えば、もっと自由に演奏させられる。
+
+少しハードルが上がるけど、
+容量気にせずいろいろ詰め込みたい人向けなのが[SuperC](https://github.com/boldowa/SuperC-SPCdrv)。
+これも現時点では無料。面倒なインストールとかもないのがうれしい。
+なんと、[日本語のドキュメント](https://github.com/boldowa/SuperC-SPCdrv/wiki)が付いている。うれしい！
+演奏データはMMLで書く。
+こういうSPCが作れる。
+[[https://www.youtube.com/embed/TxNuR_xZrEk]]
+パン振りとかビブラートとかピッチベンドをつけても
+容量に大ダメージということはない。
+MMLでは12トラックまで演奏データを書くことが出来る。
+スーファミのトラックは8個しかないので、
+DVA (Dynamic Voice Allocation)、動的割り当てによって
+12音を8音に押し込んで演奏する。
+
+他にも[AddmusicK](https://href.li/?https://www.smwcentral.net/?p=section&a=details&id=24994)とか[qSPC2](http://pagam.es/q2/)、[SNESMOD](http://snes.mukunda.com/)あたりが
+ゲームのROMなしでSPCを作ることができるツール。
+自分は使ったことがない。
+
+[EBMusEd](https://www.smwcentral.net/?p=section&a=details&id=24994)とかSPCMake by [FF4](https://github.com/pgate1/spcmake_byFF4),[FF5](https://github.com/pgate1/spcmake_byFF5),[FF6](https://github.com/pgate1/spcmake_byFF6)は
+元になるゲームのROMが必要なので使うまでのハードルが高いかも。
+
+追記
+[Terrific Audio Driver](https://github.com/undisbeliever/terrific-audio-driver/)というサウンドドライバを見つけた。
+まだ開発途中ということだけど、まあまあ高機能。
+
+これもMMLで演奏データを作る。PMDっぽい文法。
+BRR作成からSPC作成までを一通り行えるソフトが付いているので
+敷居はすごく低いと思う。</script><script src=/common.js></script><script src=/modoki.js></script></body></html>

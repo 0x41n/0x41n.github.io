@@ -1,0 +1,1 @@
+async function loadCommon(e,t){e=document.querySelector(e);e&&(t=await fetch(t),e.innerHTML=await t.text())}

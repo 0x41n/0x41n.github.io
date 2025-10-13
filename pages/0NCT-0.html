@@ -1,0 +1,172 @@
+<!DOCTYPE html><html><head><title>ゲームの音源仕様</title><meta charset=UTF-8><meta property="og:title"content="ゲームの音源仕様"><meta property="og:description"content="ゲーム機の音楽の仕様を知ろう！ ちょっとずつ更新します。"><meta property="og:url"content="https://0x41n.github.io/pages/0NCT-0.html"><meta property="og:image"content="https://0x41n.github.io/file/img/0x41n.png"><meta property="og:site_name" content="メモおきば"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@0x41n"/></head><body><main id=content></main><script type=markdown id=source>---
+title: ゲームの音源仕様
+created: 2023-12-29
+updated: 2025-10-08
+tags: list,sound
+list: true
+---
+ゲーム機の音楽の仕様を知ろう！
+ちょっとずつ更新します。
+[more]
+以前ちょっとだけ公開した音源の仕様まとめです。
+自分が興味のある音源しか調べてません。
+「Daw上で仕様を意識してそれっぽく」くらいがゴール。
+まちがっていたらゴメンネ。
+
+実際の音楽ファイルについては[ここ](https://w.atwiki.jp/soundfile/)がほどよくまとまっている。
+
+注意
+- あくまでメモとしてまとめてるのでいろいろ見づらいです。
+- 実機で動くデータ(NSFなど)の作成については書いていません。
+- 基本、チャンネル数=最大同時発音数として書いています。
+## [ファミリーコンピュータ - FC / NES](https://ja.wikipedia.org/wiki/ファミリーコンピュータ)
+※拡張音源なしの場合
+|音源|チャンネル数|
+|---|:-:|
+|矩形波 (Duty比 12.5%、25%、50%、75%)|2|
+|三角波 (音量固定)|1|
+|サンプリング音源 (DPCM)|1|
+- [ここ](https://wikiwiki.jp/mck/ファミコン音源のスペック)でより詳しい説明が見れる。
+- モノラルなので音の振り分けはできない。
+- 音量は16段階。
+- 使えるBPMに限りがある。150が一番都合がいい。
+- DPCMのループ再生は使わない方がそれっぽい？
+## [スーパーファミコン - SFC / SNES](https://ja.wikipedia.org/wiki/スーパーファミコン)
+|音源|チャンネル数|
+|---|:-:|
+|サンプリング音源 (32000Hz ADPCM)|8|
+- [マニュアル](https://wiki.superfamicom.org/sfc-sound-manual)もあるけど難しい…
+- FIRフィルタとディレイが使える。
+- ピッチモジュレーション機能とノイズ機能もある。
+- ノイズ機能はピッチの変更ができない。(周波数の指定はできる)
+- ゲームによって曲に割り当てるチャンネルの数が結構変わる。
+## [ゲームボーイ - GB](https://ja.wikipedia.org/wiki/ゲームボーイ)
+|音源|チャンネル数|
+|---|:-:|
+|矩形波 (Duty比 12.5%、25%、50%、75%)|2|
+|波形メモリ (16段階32サンプル)|1|
+|ノイズ|1|
+- [ニコニコ大百科](https://dic.nicovideo.jp/a/gb音源)で詳しく見れる。
+- ファミコンと違ってステレオで出力できる。<br>(パン振りは右or左or中央の3段階？)
+- [波形メモリ部分でPCMを再生する技術](https://togetter.com/li/753309?page=2)もある。<br>(「ぷよぷよ～ん」とか「コロコロカービィ」とか)
+- 波形メモリは音量が実質固定で<br>波形をずらすことで音を小さくしているらしい。(4段階？)
+## [バーチャルボーイ - VB](https://ja.wikipedia.org/wiki/バーチャルボーイ)
+|音源|チャンネル数|
+|---|:-:|
+|波形メモリ音源 (64段階32サンプル)|5|
+|ノイズ|1|
+- 参照元は[ここ](https://www.virtual-boy.com/forums/t/virtual-boy-audio-specifications/)。
+- 16bitステレオらしい。パン振りにほぼ制限がない？
+## [ゲームボーイアドバンス - GBA](https://ja.wikipedia.org/wiki/ゲームボーイアドバンス)
+|音源|チャンネル数|
+|---|:-:|
+|[GB音源](#ゲームボーイ-GB)(上記のものと同じ)|4|
+|サンプリング音源|2^※^|
+_※1チャンネル12音くらいらしい_
+- あくまで標準サウンドドライバの情報
+- [ここ](https://loveemu.github.io/vgmdocs/Summary_of_GBA_Standard_Sound_Driver_MusicPlayer2000.ja-JP.html)で詳しく見れる。<br>サウンドドライバによって仕様が変わるっぽい。
+- BPMは偶数だと良いかもしれない。
+## [ニンテンドーDS - DS / NDS](https://ja.wikipedia.org/wiki/ニンテンドーDS)
+|音源|チャンネル数|
+|---|:-:|
+|サンプリング音源|16|
+- 16音のうち、8音をPSG音源にすることができる。<br>(矩形波6音、ノイズ2音)
+- [ここ](https://onulab.net/ds/ds2.html)によるとPSG音源の矩形波はDuty比が8段階っぽい。
+- [この動画](https://www.youtube.com/watch?v=BKNUPZx6w-E)(英語)のコメントによるとPSG部分はGB音源二つ分ということらしい。<br>(ノイズはGB仕様の方がいいのかもしれない)
+## [NINTENDO64 - 64 / N64](https://ja.wikipedia.org/wiki/NINTENDO64)
+|音源|チャンネル数|
+|---|:-:|
+|サンプリング音源 (ADPCM)|可変^※^|
+_※CPUをどれだけサウンドに充てるかによってチャンネル数が変化する。_
+_　(1チャンネルでCPU1%くらいらしい。最大は100chくらい)_
+- ここまでくると制限らしい制限がない。
+- [ここ](https://www.nintendo64ever.com/Nintendo-64-Technical-Specifications.html)(英語)で詳しいのが見れる。
+- [ここ](https://gearspace.com/board/electronic-music-instruments-and-electronic-music-production/1385016-nintendo-64-reverb-info-dump-bonus-facts.html)(英語)によると、リバーブの機能もあるにはあるらしい。<br>エフェクトなしで打ち込むとそれっぽくなると思う。
+## [メガドライブ - MD / GENESIS](https://ja.wikipedia.org/wiki/メガドライブ)
+|音源|チャンネル数|
+|---|:-:|
+|ステレオFM音源 ([YM2612](https://ja.wikipedia.org/wiki/YM2612))|6|
+|矩形波 (Duty比 50%)|3|
+|ノイズ|1|
+- YM2612は6chのみ8ビットリニアPCMとして使用可能。
+- 矩形波とノイズは[SN76489](https://ja.wikipedia.org/wiki/Programmable_Sound_Generator#SN76489の仕様)というゲームギアなどでも使われている音源。
+## [PCエンジン - PCE / TG-16](https://ja.wikipedia.org/wiki/PCエンジン)
+|音源|チャンネル数|
+|---|:-:|
+|波形メモリ音源 (32段階32サンプル)|6|
+- 6音のうち、2音はノイズにできる。
+- 5bitPCMも再生できる。
+- 波形メモリ、ノイズ、PCM合わせて計6音まで同時に出せる。
+- LFOが内蔵されている。2音を合わせてFM音源っぽいことが出来るらしい。
+## [ワンダースワン - WS](https://ja.wikipedia.org/wiki/ワンダースワン)
+|音源|チャンネル数|
+|---|:-:|
+|波形メモリ音源 (16段階32サンプル)|4|
+- 2ch目を8bitのPCMに変更できる。
+- 4ch目はノイズに変更できる。
+- すべてのチャンネルでステレオ出力できる。<br>音量は左右それぞれ4bitずつでの指定。
+- ホワイトノイズは8種類から音を選べるらしい。
+## [X68000 - X68k](https://ja.wikipedia.org/wiki/X68000)
+|音源|チャンネル数|
+|---|:-:|
+|ステレオFM音源 ([YM2151](https://ja.wikipedia.org/wiki/YM2151))|8|
+|サンプリング音源 (ADPCM)|1|
+- [ここ](https://www.wizforest.com/OldGood/X68k/X68k2.html)によると、ADPCMを合成して1音に押し込む仕組みもあったらしい。<br>(PCM4とかPCM8とか)
+## [SOUND CREATIVE CHIP - SCC](https://ja.wikipedia.org/wiki/SCC)
+|音源|チャンネル数|
+|---|:-:|
+|波形メモリ音源 (256段階32サンプル)|5|
+- 参照元は[ここ](https://qiita.com/suzukiplan/items/adb192b2f66010170803)
+- モノラルなので音の振り分けができない。
+- 同時発音は5音だけど、波形数は4つまで？
+- 音量は16段階。
+## [PiyoPiyo](https://ja.wikipedia.org/wiki/洞窟物語#音楽ドライバ)
+開発室Pixel作品「いかちゃん」などで使用されているサウンドドライバ。
+|音源|チャンネル数|
+|---|:-:|
+|波形メモリ音源 (256段階256サンプル)|3^※^|
+|パーカッション (22050Hz WAV)|1^※^|
+_※1チャンネルで24和音(2オクターブ分)同時に出せる_
+- 曲中の音色変更は不可。トラックで波形は固定。
+- キーオフされない。指定されたエンベローブ長で音が止まる。(たぶん)
+- エンベロープ(ADSR)は256段階64サンプルで指定する。
+- 1波形につき出せる音の範囲は2オクターブ分のみ。<br>最低音のオクターブが指定できる。
+- パンポットは7段階。
+- 音が鳴っている間のピッチ変更はできない。
+## [オルガーニャ - Organya](https://ja.wikipedia.org/wiki/洞窟物語#音楽ドライバ)
+開発室Pixel作品「洞窟物語」や
+Rxo Inverse氏による「STARGAZER」などで使用されているサウンドドライバ。
+|音源|チャンネル数|
+|---|:-:|
+|波形メモリ音源 (256段階256サンプル)|8|
+|パーカッション (22050Hz WAV)|8|
+- 開発者本人によるちょっとした解説は[ここ](https://youtu.be/yZJWCATxP-Q?si=14oB4GOw-FFBQkz5&t=5609)。
+- 曲中の音色変更は不可。チャンネルで波形は固定。
+- 波形メモリ音源は100種から選ぶ。自分では書けない。
+- 最短ノートが何ミリ秒かを指定してテンポを決める。
+- ADSRは指定できない。ボリュームをいじってそれっぽくする。
+- キーオン中のピッチ変更もたぶんできない。ビブラート不可。
+## [PMD98 - PMD](http://www5.airnet.ne.jp/kajapon/tool.html)
+KAJA氏制作のPC-9800シリーズ用のFM音源ドライバ。
+常駐量削減のために音源ごとにドライバが分かれている。
+||音源|チャンネル数|
+|---|---|:-:|
+|^ [YM2203](https://ja.wikipedia.org/wiki/YM2203)|モノラルFM音源|3|
+|SSG音源|3|
+|^^ [YM2608](https://ja.wikipedia.org/wiki/YM2608)|ステレオFM音源|6|
+|リズム音源|6|
+|ADPCM|1|
+|^^ YM2608 + PCM<br>(いわゆる[86音源](https://dic.nicovideo.jp/a/pc-9801-86))|ステレオFM音源|6|
+|リズム音源|6|
+|PCM|1|
+|^^^ YM2608 + PCM<br>+<br>ADPCM ([ちびおと](https://web.archive.org/web/20240129031845/https://www.kuropanda.org/?p=447))|ステレオFM音源|6|
+|リズム音源|6|
+|PCM|1|
+|ADPCM|1|
+- ちびおとは同人の拡張音源らしい。
+- 東方旧作はたぶんYM2608。
+## [PSG,SSG,DCSG](https://ja.wikipedia.org/wiki/Programmable_Sound_Generator)
+- AY-3-8910とその互換音源(SN76489など)。
+- 違いがあるけどまとめられてるイメージ。
+- Duty比50% 3つとノイズが出せるらしい。
+- 矩形波以外の音が出ている気がしてならないので調査中…</script><script src=/common.js></script><script src=/modoki.js></script></body></html>

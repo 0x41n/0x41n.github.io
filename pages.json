@@ -1,0 +1,109 @@
+[
+  {
+    "title": "SPCファイルをつくる",
+    "description": "スーパーファミコンの曲データをつくりたい。",
+    "created": "2023-06-27",
+    "updated": "2025-10-09",
+    "tags": [
+      "make",
+      "sound"
+    ],
+    "url": "pages/0N6R-0.html",
+    "list": "true"
+  },
+  {
+    "title": "フォントをつくる",
+    "description": "お金をかけずに自分だけのピクセルフォントをつくりたい！",
+    "created": "2023-06-27",
+    "updated": "2025-10-09",
+    "tags": [
+      "make"
+    ],
+    "url": "pages/0N6R-1.html",
+    "list": "true"
+  },
+  {
+    "title": "役立つソフトたち",
+    "description": "自分用のリンク集。",
+    "created": "2023-07-08",
+    "updated": "2025-10-08",
+    "tags": [
+      "list"
+    ],
+    "url": "pages/0N78-0.html",
+    "list": "true"
+  },
+  {
+    "title": "「カエルはカエる」の話",
+    "description": "かなり初歩的なダジャレを使ったタイトルのゲームを作った話。",
+    "created": "2023-07-29",
+    "tags": [
+      "work",
+      "game"
+    ],
+    "url": "pages/0N7T-0.html",
+    "list": "true"
+  },
+  {
+    "title": "ゲームの音源仕様",
+    "description": "ゲーム機の音楽の仕様を知ろう！ ちょっとずつ更新します。",
+    "created": "2023-12-29",
+    "updated": "2025-10-08",
+    "tags": [
+      "list",
+      "sound"
+    ],
+    "url": "pages/0NCT-0.html",
+    "list": "true"
+  },
+  {
+    "title": "波形をいじるハケイラー",
+    "description": "ハケイラーというツールを公開しました。",
+    "created": "2024-03-03",
+    "tags": [
+      "work",
+      "sound"
+    ],
+    "url": "pages/0O33-0.html",
+    "list": "true"
+  },
+  {
+    "title": "OPUS！オーパス！",
+    "description": "ゲームを作っている、特に音楽も作っている人に知らせたいOPUSの話。",
+    "created": "2025-08-08",
+    "tags": [
+      "sound"
+    ],
+    "url": "pages/0P88-0.html",
+    "list": "true"
+  },
+  {
+    "title": "情報",
+    "description": "いろんな情報のページです。",
+    "tags": [
+      ""
+    ],
+    "url": "pages/z_about.html",
+    "list": "false"
+  },
+  {
+    "title": "ダウンロード",
+    "description": "ダウンロードできるものなどを置いています。 素材系 Nosta 5 5pxくらいの　英語・カタカナ対応のフォントです。  Sabi 16pxくらいのピクセルフォントです。 いまのところ半角英数のみの対応です。  Nosta Five 2 5pxくらいの　英語・カタカナ・ひらがな対応のフォントです。  T98H.sf2 東方旧作 (PC-98) の音を再現したサウンドフォントです。 再現度は低めですが、容量はできるだけ小さくなるようにしました。 こんな感じの音が使えます。  NostapC.sf2 チップチューンっぽい音のサウンドフォントです。 こんな感じの音が使えます。 ゲーム カエルはカエる 第15回ウディコン応募作品。 レトロゲーム風の みじかい横スクアクションです。 音楽 かがみこ unity1week試走作品「かがみこ」の音楽です。  Trustia unity1week お題「かえす」投稿作品「Trustia」の音楽です。 ツール ハケイラー ちょっとした波形が作れます。  いろいじり RGBの計算などをします。  SVG2PNG SVGをCanvasで描画して PNGとしてダウンロードできるようにするツールです。  もじさがし 文字のユニコードを検索したりできます。  MIDIvel MIDIの音量関係の数値を ベロシティにまとめるだけのツールです。  今日の年齢計算 現在の日時での年齢などを計算します。 書類に書く時などにどうぞ。",
+    "tags": [
+      ""
+    ],
+    "url": "pages/z_down.html",
+    "list": "false"
+  },
+  {
+    "title": "ガイドライン",
+    "description": "ネオジム (neodym65) の創作物に関しての利用規約をまとめておきます。",
+    "created": "2023-06-27",
+    "updated": "2024-11-04",
+    "tags": [
+      ""
+    ],
+    "url": "pages/z_guide.html",
+    "list": "false"
+  }
+]
