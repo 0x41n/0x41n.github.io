@@ -84,6 +84,9 @@ h2{
 	margin-top:-2em;
 	border-bottom:solid 1px var(--line);
 }
+ul, ol{
+	padding-left:2em;
+}
 input[type="search"]::-webkit-search-cancel-button{
   -webkit-appearance:none;
 }
