@@ -279,7 +279,7 @@ aside{
 .tab-wrapper{
 	position:relative;
 }
-.tab-wrapper::after{
+.fade-right{
 	content:"";
 	width:3em;
 	height:100%;
