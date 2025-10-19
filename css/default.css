@@ -240,6 +240,7 @@ aside{
 	outline:none;
 	padding:1em .5em;
 	margin-left:auto;
+	background-color:var(--back1);
 }
 #search:focus{
 	box-shadow:0 1px 0 0 var(--a);
@@ -253,7 +254,6 @@ aside{
 	cursor:pointer;
 }
 #tab{
-	width:100%;
 	display:flex;
 	border-bottom:solid 1px var(--line);
 	overflow-x:scroll;
@@ -271,6 +271,20 @@ aside{
 	opacity:1;
 	cursor:pointer;
 	border-bottom:solid 1px var(--a);
+}
+.tab-wrapper{
+	position:relative;
+}
+.tab-wrapper::after{
+	content:"";
+	width:3em;
+	height:100%;
+	background: linear-gradient(to right, rgba(0,0,0,0), var(--back1) 100%);
+	position:absolute;
+	top: 0;
+	right:0;
+	z-index:1;
+	pointer-events:none;
 }
 .noresult{
 	width:100%;
