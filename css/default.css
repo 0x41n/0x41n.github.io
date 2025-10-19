@@ -9,7 +9,7 @@ img,audio,video{
 	border-radius:.25em;
 }
 :root{
-	--back1:#FCFDFF;
+	--back1:#FCFDFE;
 	--back2:#F6F7F8;
 	--line:#E0E2E3;
 	--code:rgba(150,150,155,0.12);
@@ -200,6 +200,7 @@ aside{
 }
 #foot a:hover{
 	opacity:.5;
+	text-decoration:none;
 }
 #foot i{
 	font-size:1.2em;
@@ -209,7 +210,7 @@ aside{
 }
 .toc a{
 	display:block;
-	margin-left:1em;
+	margin-left:.5em;
 	padding:.25em 0 .25em .5em;
 	color:var(--grayout);
 	border-left:solid 2px var(--line);
@@ -243,6 +244,7 @@ aside{
 	border:none;
 	outline:none;
 	padding:1em .5em;
+	height:2.25em;
 	margin-left:auto;
 	background-color:var(--back1);
 }

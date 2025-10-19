@@ -104,7 +104,7 @@
     "tags": [
       ""
     ],
-    "url": "pages/z_about.html",
+    "url": "pages/about.html",
     "list": "false"
   },
   {
@@ -113,7 +113,7 @@
     "tags": [
       ""
     ],
-    "url": "pages/z_down.html",
+    "url": "pages/download.html",
     "list": "false"
   },
   {
@@ -124,7 +124,7 @@
     "tags": [
       ""
     ],
-    "url": "pages/z_guide.html",
+    "url": "pages/guideline.html",
     "list": "false"
   }
 ]
