@@ -114,6 +114,7 @@ input[type="search"]::-webkit-search-cancel-button{
 	border-radius:.5em;
 	margin:1em 0;
 	display:flex;
+	overflow:hidden;
 }
 .linkcard img{
 	border-radius:0;
