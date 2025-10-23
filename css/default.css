@@ -9,13 +9,23 @@ img,audio,video{
 	border-radius:.25em;
 }
 :root{
-	--back1:#FAF8F8;
-	--back2:#F7F5F5;
-	--line:#E3E0E0;
+	--back1:#FCFDFE;
+	--back2:#F6F7F8;
+	--line:#E0E2E3;
 	--code:rgba(150,150,155,0.12);
 	--codeblock:#F2F2F4;
-	--text:#455050;
-	--grayout:#909595;
+	--text:#455055;
+	--grayout:#9095A0;
+	--a:#499;
+}
+:root.dark{
+	--back1:#404045;
+	--back2:#505055;
+	--line:#707273;
+	--code:rgba(150,150,155,0.12);
+	--codeblock:#F2F2F4;
+	--text:#E0E2E3;
+	--grayout:#959598;
 	--a:#499;
 }
 body{
@@ -187,7 +197,6 @@ aside{
 	color:var(--grayout);
 	margin:3em 0;
 	padding:2em;
-	height:25vh;
 	border-top:solid 1px var(--line);
 }
 #foot p{
@@ -328,6 +337,18 @@ aside{
 	margin-top:auto;
 	color:var(--grayout);
 	user-select:none;
+}
+#info{
+	float:right;
+	font-size:1.2rem;
+}
+#info i{
+	padding-left:1em;
+	color:var(--grayout);
+}
+#info i:hover{
+	cursor:pointer;
+	color:var(--text);
 }
 /* 幅変化対応 */
 @media(max-width:48em){

@@ -1,1 +1,1 @@
-async function loadCommon(e,t){e=document.querySelector(e);e&&(t=await fetch(t),e.innerHTML=await t.text())}
+async function loadCommon(e,a){e=document.querySelector(e);e&&(a=await fetch(a),e.innerHTML=await a.text())}const keylocalstrage="0x41n-memo-okiba",local=localStorage.getItem(keylocalstrage),osDark=window.matchMedia("(prefers-color-scheme:dark)").matches,switchDark=e=>{e?document.documentElement.classList.add("dark"):document.documentElement.classList.remove("dark"),localStorage.setItem(keylocalstrage,e||"light")};("dark"==local||!local&&osDark)&&switchDark("dark");
