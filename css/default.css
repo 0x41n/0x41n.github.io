@@ -9,13 +9,13 @@ img,audio,video{
 	border-radius:.25em;
 }
 :root{
-	--back1:#FCFDFE;
-	--back2:#F6F7F8;
-	--line:#E0E2E3;
+	--back1:#FAF8F8;
+	--back2:#F7F5F5;
+	--line:#E3E0E0;
 	--code:rgba(150,150,155,0.12);
 	--codeblock:#F2F2F4;
-	--text:#455055;
-	--grayout:#9095A0;
+	--text:#455050;
+	--grayout:#909595;
 	--a:#499;
 }
 body{
