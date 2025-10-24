@@ -12,11 +12,9 @@ i{
 	font-variant:normal;
 	text-transform:none;
 	text-rendering:auto;
-	height:1em;
+	line-height:1;
 	-webkit-font-smoothing:antialiased;
 	-moz-osx-font-smoothing:grayscale;
-  display: inline-flex;
-  vertical-align: middle;
 }
 .i-nico:before {
   content: "\e900";
