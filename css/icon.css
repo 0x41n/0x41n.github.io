@@ -2,12 +2,13 @@
 	font-family:'icon';
 	src:url(icon.woff2) format('woff2');
 	font-display:block;
-	font-style:normal
+	font-style:normal;
 }
 i{
 	font-family:'icon'!important;
 	font-style:normal;
 	font-variant:normal;
+  font-weight:400;
 	text-transform:none;
 	text-rendering:auto;
   box-sizing:border-box;

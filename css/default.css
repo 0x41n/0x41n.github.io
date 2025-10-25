@@ -41,6 +41,7 @@ body{
 	background-color:var(--a);
 }
 a{
+	cursor:pointer;
 	color:var(--a);
 	text-decoration:none;
 }
@@ -96,6 +97,10 @@ h2{
 }
 ul, ol{
 	padding-left:2em;
+}
+hr{
+	border:none;
+	border-bottom:solid 1px var(--grayout);
 }
 input[type="search"]::-webkit-search-cancel-button{
   -webkit-appearance:none;
@@ -284,9 +289,8 @@ aside{
 }
 #tab{
 	display:flex;
-	border-bottom:solid 1px var(--line);
 	overflow-x:scroll;
-	margin-top:-3em;
+	margin:-3em 0 -1px;
 }
 #tab a{
 	opacity:.5;
@@ -294,18 +298,20 @@ aside{
 	color:var(--text);
 	user-select:none;
 	flex:0 0 auto;
+	margin:0 0 1px;
 }
 #tab a:hover, #tab a.active{
 	opacity:1;
-	cursor:pointer;
-	border-bottom:solid 1px var(--a);
+	z-index:2;
+	box-shadow:0 1px 0 0 var(--a);
 }
 .tab-wrapper{
 	position:relative;
+	border-bottom:solid 1px var(--line);
 }
 .fade-right{
 	content:"";
-	width:3em;
+	width:calc(3em - 1px);
 	height:100%;
 	background: linear-gradient(to right, rgba(0,0,0,0), var(--back1) 100%);
 	position:absolute;
