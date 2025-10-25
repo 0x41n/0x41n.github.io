@@ -44,7 +44,7 @@ a{
 	color:var(--a);
 	text-decoration:none;
 }
-a:hover, .date a:hover{
+main a:hover, .date a:hover{
 	text-decoration:underline;
 }
 table{
@@ -133,7 +133,6 @@ input[type="search"]::-webkit-search-cancel-button{
 	border-radius:0;
 }
 .linkcard:hover, #result a:hover{
-	text-decoration:none;
 	background-color:var(--back2);
 }
 .linkcard span{
@@ -182,7 +181,7 @@ aside{
 	font-size:.8em;
 }
 .head{
-	margin:3em 0;
+	margin:2em 0 3em;
 	border-bottom:solid 1px var(--line);
 }
 .head div{
@@ -192,6 +191,23 @@ aside{
 .head p{
 	margin:.5em 0;
 	font-size:.8em;
+}
+#bar{
+	font-size:1.2rem;
+	display:grid;
+	grid-auto-flow:column;
+}
+#bar a{
+	display:inline-block;
+	height:1em;
+}
+#bar p{
+	margin:0;
+	height:1em;
+}
+#bar i:hover, #bar a:hover{
+	cursor:pointer;
+	color:var(--text);
 }
 #foot{
 	color:var(--grayout);
@@ -204,12 +220,11 @@ aside{
 	justify-content:center;
 	gap:2em;
 }
-#foot a{
+#foot a, #bar i{
 	color:var(--grayout);
 }
 #foot a:hover{
 	opacity:.5;
-	text-decoration:none;
 }
 #foot i{
 	font-size:1.2em;
@@ -229,7 +244,6 @@ aside{
 }
 .toc a:hover{
 	color:var(--text);
-	text-decoration:none;
 }
 .toc .active{
 	background-color:var(--code);
@@ -279,7 +293,6 @@ aside{
 	padding:1em;
 	color:var(--text);
 	user-select:none;
-	text-decoration:none;
 	flex:0 0 auto;
 }
 #tab a:hover, #tab a.active{
@@ -337,18 +350,6 @@ aside{
 	margin-top:auto;
 	color:var(--grayout);
 	user-select:none;
-}
-#info{
-	float:right;
-	font-size:1.2rem;
-}
-#info i{
-	padding-left:1em;
-	color:var(--grayout);
-}
-#info i:hover{
-	cursor:pointer;
-	color:var(--text);
 }
 /* 幅変化対応 */
 @media(max-width:48em){
