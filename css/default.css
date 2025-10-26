@@ -263,10 +263,11 @@ aside{
 	text-decoration:underline;
 }
 /* インデックスページ用 */
-#search, .search{
+.search{
 	color:var(--grayout);
 }
 #search{
+	color:var(--text);
 	font-size:1rem;
 	width:9rem;
 	border:none;
@@ -282,6 +283,7 @@ aside{
 #search::placeholder{
 	opacity:.5;
 	color:var(--grayout);
+	user-select:none;
 }
 .search:hover{
 	opacity:.5;
