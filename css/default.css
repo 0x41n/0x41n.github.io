@@ -45,7 +45,7 @@ a{
 	color:var(--a);
 	text-decoration:none;
 }
-main a:hover, .date a:hover{
+main a:hover:not(.linkcard), .date a:hover{
 	text-decoration:underline;
 }
 table{
