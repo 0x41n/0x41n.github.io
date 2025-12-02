@@ -103,6 +103,7 @@
     "title": "MIDIの構造",
     "description": "MIDIファイルのフォーマットについて。 ※書きかけの記事です。",
     "created": "2025-11-29",
+    "updated": "2025-12-03",
     "tags": [
       "sound"
     ],
