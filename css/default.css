@@ -32,7 +32,7 @@ body{
 	color:var(--text);
 	background-color:var(--back1);
 	padding:3em;
-	max-width:45em;
+	max-width:50em;
 	margin-inline:auto;
 }
 /* 基本 */

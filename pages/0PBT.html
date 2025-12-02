@@ -1,0 +1,93 @@
+<!DOCTYPE html><html><head><title>MIDIの構造</title><meta charset=UTF-8><meta property="og:title"content="MIDIの構造"><meta property="og:description"content="MIDIファイルのフォーマットについて。 ※書きかけの記事です。"><meta property="og:url"content="https://0x41n.github.io/pages/0PBT"><meta property="og:image"content="https://0x41n.github.io/file/img/0x41n.png"><meta property="og:site_name" content="メモおきば"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@0x41n"/></head><body><main id=content></main><script type=markdown id=source>---
+title: MIDIの構造
+created: 2025-11-29
+tags: sound
+list: true
+---
+MIDIファイルのフォーマットについて。
+※書きかけの記事です。
+[more]
+「[フォーマット](https://ja.wikipedia.org/wiki/ファイルフォーマット)って何？？」「[MIDI](https://ja.wikipedia.org/wiki/スタンダードMIDIファイル)って？」
+といった説明は省略します。
+ここでいうフォーマットはバイト列くらいの意味です。
+(このあたりの言葉の定義をよくわかっていません)
+
+とにかくMIDIファイルを読み書きしたい！
+## 前提
+- ここでのMIDIは「Standard Midi File」のことを指している
+- 拡張子は「.mid」とか「.smf」とか
+- フォーマットには0、1、2の3種類ある
+ - よくわからないので2は無視する！
+- バイトの並びは基本ビッグエンディアン
+ - 0x1234を0x12, 0x34という順番で並べる方式
+ - (補足) リトルエンディアンは0x34, 0x12と並べる
+- MIDIキーボード対応というよりMIDIファイルを読むことが目的
+- MIDIについて網羅するものではない
+## 大まかな全体像
+|チャンク|内容|バイト数|備考|
+|--|--|:-:|--|
+|^^^^ ヘッダー|識別子|4|`0x4D,0x54,0x68,0x64`<br>ASCIIで"MThd"|
+|サイズ|4|ヘッダチャンクのバイト数<br>基本6で固定<br>(サイズより後の部分のバイト数)|
+|フォーマット|2|0, 1, 2のいずれか|
+|トラック数|2|チャンネル数ではなくトラック数<br>フォーマット0の時は1で固定|
+|分解能|2|最大で4分音符を何分割できるか<br>最上位ビットが1のときは意味が変わる<br>(難しいので省略)|
+|^^^^ トラック|識別子|4|`0x4D,0x54,0x72,0x6B`<br>ASCIIで"MTrk"|
+|サイズ|4|トラックチャンクのバイト数<br>(サイズより後の部分のバイト数)|
+|デルタタイム|可変|次のイベントまでの時間|
+|イベント|可変|音を鳴らす、楽器を変えるなど|
+|>> 以降はデルタタイムとイベントを繰り返す|
+|>>> トラック数が1より大きいとき、トラックチャンクが繰り返される|
+## デルタタイム
+直前のイベントから次のイベントまでの時間を表す値です。
+なんと可変長バイトです。~~ふざけるな。~~
+基本は1バイトずつ読みます。
+最上位ビットが次のバイトも読むフラグ、残り7ビットが数値です。
+
+バイト列が`0x81, 0x7F`と並んでいる時、
+それぞれ2進数で表すと`0b10000001, 0b01111111`となります。
+最初のバイトは一番左のビットが1なので次のバイトも読みます。
+次のバイトは一番左のビットが0なので次のバイトは読みません。
+数値として読み取るときはそれぞれ残った7ビットを連結させて
+14ビットの数値として読みます。
+`0b_0000001, 0b_1111111`をつなげて`0b00000011111111`となり、
+結果として数値は255となります。
+
+考え方の一例
+1. 返却値用の変数を用意(仮にaとする)。
+2. 1バイト読む。
+3. 値が128以上か判断。aに`読み取った値%128`を記録。
+4. 128未満ならそのままaを返す。
+5. 128以上だった時、aを128倍して2に戻り次のバイトを読む。
+## イベント
+「MIDIイベント」とか「MIDIメッセージ」とか言うようです。
+イベントではチャンネルを指定して
+「n番のチャンネル！これして！」という指示を出してます。
+
+ややこしいのは「チャンネルとトラックが別のもの」ということです。
+1つ目のトラックだからと言って
+必ずしもチャンネル1のイベントが入っているというわけではないんです。
+いちいちちゃんと読み取りましょう。
+
+※イベントの内容によってバイト列の長さが変わります
+※先頭バイトのnはチャンネル
+※基本、2バイト目以降は0-127の範囲
+|内容|バイト列|備考|
+|--|--|--|
+|ノートオフ|`0x8n, 0xkk, 0xvv`|kk=キー、vv=ベロシティ<br>指定したキーの音を止める|
+|ノートオン|`0x9n, 0xkk, 0xvv`|kk=キー、vv=ベロシティ<br>指定したキーの音を鳴らす<br>vvが0のとき、ノートオフ扱いとなる|
+|キーアフタータッチ|`0xAn, 0xkk, 0xvv`|kk=キー、vv=ベロシティ<br>鍵盤を押す圧力が<br>変化したことを知らせるイベント|
+|コントロールチェンジ (CC)|`0xBn, 0xNN, 0xvv`|NN=種類、vv=設定する値<br>パンポットとかを設定する<br>詳細は後述|
+|プログラムチェンジ|`0xCn, 0xNN`|NN=楽器　楽器の変更<br>CCと組み合わせていろいろ変えられる|
+|チャンネルアフタータッチ|`0xDn, 0xvv`|vv=ベロシティ<br>キーアフタータッチと同じようなもの|
+|ピッチベンド|`0xEn, 0xMM, 0xLL`|7ビットのリトルエンディアンという意味不明な値<br>`LL下位7ビット * 128 + MM下位7ビット - 8192`で計算<br>CCと組み合わせてピッチの動きを設定|
+|^ SysExメッセージ|`0xF0, …, 0xF7`|可変長、`0xF7`が来るまで読む<br>音源の機種に依存するらしい…|
+|`0xF7, len, …`|可変長、lenはデルタタイムと同じ方法で読む<br>(len=lenより後に何バイト続くか)|
+|メタイベント|`0xFF, len, …`|lenはデルタタイムと同じ方法で読む<br>詳細は後述|
+
+## 参考
+- [SMF (Standard MIDI Files) の構造](https://sites.google.com/site/yyagisite/material/smfspec)
+- [SMF（Standard MIDI File）メモ](https://zenn.dev/zenwerk/scraps/5baecdc76b15c7)
+- [おーぷんMIDIぷろじぇくと](https://openmidiproject.opal.ne.jp/documentations.html)
+- [SMF(Standard MIDI File)フォーマット解説](https://maruyama.breadfish.jp/tech/smf/)
+- [JavaScriptでMIDIファイルを解析してみる ２](https://qiita.com/PianoScoreJP/items/71db2907b302793544e9)
+- [MIDI Files Specification](http://www.somascape.org/midi/tech/mfile.html)</script><script src=/common.js></script><script src=/modoki.js></script></body></html>
