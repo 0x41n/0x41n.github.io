@@ -34,6 +34,7 @@ body{
 	padding:3em;
 	max-width:50em;
 	margin-inline:auto;
+	font-family:-apple-system,'Segoe UI','Helvetica Neue','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;
 }
 /* 基本 */
 ::selection{
