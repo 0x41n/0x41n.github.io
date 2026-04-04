@@ -1,28 +1,36 @@
-<!DOCTYPE html><html><head>
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>0x41n</title>
 <meta charset=UTF-8>
-<title>メモおきば</title>
-<link rel='stylesheet' href='./css/default.css'>
-<link rel='stylesheet' href='./css/icon.css'>
-<link rel=icon type=image/svg+xml href=https://0x41n.github.io/file/fav.svg>
-<meta name=viewport content='width=device-width, initial-scale=1.0'/>
-<meta property="og:title"content="メモおきば">
-<meta property="og:description"content="ちまちま">
+<link rel=stylesheet href=./css/nost.css>
+<link rel=stylesheet href=./css/icon.css>
+<link rel=stylesheet href=./css/app.css>
+<link rel=icon type=image/svg+xml href=./fav.svg>
+<meta name=viewport content='width=device-width, initial-scale=1.0'>
+<meta property="og:title"content="0x41n">
+<meta property="og:description"content="いろいろなモノを置く拠点です">
 <meta property="og:image"content="https://0x41n.github.io/file/img/0x41n.png">
 <meta property="og:url"content="https://0x41n.github.io">
-<meta property="og:site_name" content="メモおきば"/>
+<meta property="og:site_name" content="0x41n"/>
 <meta property="og:type" content="website"/>
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:site" content="@0x41n"/>
+<meta name="twitter:site" content="@neodym65"/>
+<script src="./common.js"></script>
 </head>
-<body>
-<div id=bar><p style=text-align:right><i class=i-sun onclick='switchDark("")'></i><i class=i-moon onclick='switchDark("dark")' style=margin-left:1em></i></p></div>
-<div class=head id=head><div class=vcenter><span>メモおきば</span>
-<input id=search type=search placeholder='検索'><a class=search><i class=i-search onclick=setKeyword()></i></a></div>
-</div>
-<div class=tab-wrapper><div id=tab class=nobar></div><div class=fade-right></div></div>
-<div id=result class=nobar></div>
+<body class=box>
+<div style='width:100%'>
+<div id=x41n style='font-size:1.5em'></div>
+<div>ネオジム (neodym65) に関する<br>いろいろなモノを置く拠点です。</div>
+<div id=result></div>
 <div id=foot></div>
-<script src=./common.js></script>
-<script src=./index.js></script>
+</div>
+
+<script>
+(async _=>{
+	await loadCommon('#x41n','/templates/head.html');
+	await loadCommon('#foot','/templates/foot2.html');
+})();
+</script>
 </body>
 </html>

@@ -8,7 +8,7 @@
       "make",
       "sound"
     ],
-    "url": "pages/0N6R-0",
+    "url": "0N6R-0",
     "list": "true"
   },
   {
@@ -19,7 +19,7 @@
     "tags": [
       "make"
     ],
-    "url": "pages/0N6R-1",
+    "url": "0N6R-1",
     "list": "true"
   },
   {
@@ -30,7 +30,7 @@
     "tags": [
       "list"
     ],
-    "url": "pages/0N78",
+    "url": "0N78",
     "list": "true"
   },
   {
@@ -41,7 +41,7 @@
       "work",
       "game"
     ],
-    "url": "pages/0N7T",
+    "url": "0N7T",
     "list": "true"
   },
   {
@@ -53,7 +53,7 @@
       "list",
       "sound"
     ],
-    "url": "pages/0NCT",
+    "url": "0NCT",
     "list": "true"
   },
   {
@@ -64,7 +64,7 @@
       "work",
       "sound"
     ],
-    "url": "pages/0O33",
+    "url": "0O33",
     "list": "true"
   },
   {
@@ -76,7 +76,7 @@
       "work",
       "game"
     ],
-    "url": "pages/0O9B",
+    "url": "0O9B",
     "list": "true"
   },
   {
@@ -86,7 +86,7 @@
     "tags": [
       "sound"
     ],
-    "url": "pages/0P88",
+    "url": "0P88",
     "list": "true"
   },
   {
@@ -96,7 +96,7 @@
     "tags": [
       "make"
     ],
-    "url": "pages/0PAD",
+    "url": "0PAD",
     "list": "true"
   },
   {
@@ -107,16 +107,16 @@
     "tags": [
       "sound"
     ],
-    "url": "pages/0PBT",
+    "url": "0PBT",
     "list": "true"
   },
   {
-    "title": "情報",
-    "description": "いろんな情報のページです。",
+    "title": "about",
+    "description": "ネオジム / neodym65",
     "tags": [
       ""
     ],
-    "url": "pages/about",
+    "url": "about",
     "list": "false"
   },
   {
@@ -125,7 +125,7 @@
     "tags": [
       ""
     ],
-    "url": "pages/download",
+    "url": "download",
     "list": "false"
   },
   {
@@ -136,7 +136,16 @@
     "tags": [
       ""
     ],
-    "url": "pages/guideline",
+    "url": "guideline",
+    "list": "false"
+  },
+  {
+    "title": "Tokonuts",
+    "description": "いろいろするサークルです",
+    "tags": [
+      ""
+    ],
+    "url": "Tokonuts",
     "list": "false"
   }
 ]

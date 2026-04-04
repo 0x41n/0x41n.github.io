@@ -1,0 +1,82 @@
+<!DOCTYPE html><html><head>
+<meta charset=UTF-8>
+<title>メモおきば</title>
+<link rel='stylesheet' href='../css/nost.css'>
+<link rel='stylesheet' href='../css/icon.css'>
+<style>
+#head{
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+}
+#head p{
+	width:15em;
+	max-width:50%;
+	display:flex;
+}
+#head input, #head select{
+	width:0;
+	flex:1;
+}
+#result{
+	display:grid;
+	gap:1em;
+	grid-template-columns:repeat(2, minmax(0, 1fr));
+}
+#result a{
+	height:10em;
+	padding:1em;
+	border:var(--border);
+	display: flex;
+	flex-direction: column;
+}
+#result .ttl{
+	font-weight:bold;
+}
+#result .info{
+	font-size:.8em;
+	margin-top:auto;
+	color:var(--gray);
+	user-select:none;
+}
+@media(max-width:40em){
+	#result{grid-template-columns:repeat(1, minmax(0, 1fr))}
+}
+</style>
+<link rel=icon type=image/svg+xml href=https://0x41n.github.io/file/fav.svg>
+<meta name=viewport content='width=device-width, initial-scale=1.0'/>
+<meta property="og:title"content="メモおきば">
+<meta property="og:description"content="ちまちま">
+<meta property="og:image"content="https://0x41n.github.io/file/img/0x41n.png">
+<meta property="og:url"content="https://0x41n.github.io">
+<meta property="og:site_name" content="メモおきば"/>
+<meta property="og:type" content="website"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@0x41n"/>
+<script src=../common.js></script>
+<script src=./index.js></script>
+</head>
+<body>
+<div id=x41n></div>
+<div class=head id=head>
+<b style='font-size:1.5em'>メモおきば</b>
+<p>
+<input id=search type=search placeholder='検索' onchange=setKeyword()>
+<select id=tag onchange=setTag(this)></select>
+</p>
+</div>
+<div style='display:flex'>
+<div id=result></div>
+<div id=side>
+<div id=misc></div>
+</div>
+</div>
+<div id=foot></div>
+<script>
+(async _=>{
+	await loadCommon('#x41n','/templates/head.html');
+	await loadCommon('#foot','/templates/foot2.html');
+})();
+</script>
+</body>
+</html>
