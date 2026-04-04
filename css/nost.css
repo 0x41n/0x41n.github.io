@@ -294,6 +294,7 @@ input, select{
 }
 .linkcard img{
 	width:35%;
+	flex-shrink:0;
 	object-fit:cover;
 }
 /*幅対応*/
