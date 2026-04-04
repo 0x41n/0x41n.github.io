@@ -293,8 +293,8 @@ input, select{
 	font-size:.8em;
 }
 .linkcard img{
-	height:100%;
-	object-fit:contain;
+	width:35%;
+	object-fit:cover;
 }
 /*幅対応*/
 @media(max-width:40em){
