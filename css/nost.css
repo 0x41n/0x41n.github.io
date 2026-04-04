@@ -206,12 +206,6 @@ input, select{
 #foot a:hover{
 	cursor:pointer;
 }
-/*幅対応*/
-@media(max-width:40em){
-	body,#main,#result{width:100%}
-	#main,#result{margin:0}
-	#side{display:none}
-}
 /*ヘッダー*/
 #x41n{
 	margin:1em 0;
@@ -299,5 +293,12 @@ input, select{
 	font-size:.8em;
 }
 .linkcard img{
+	height:100%;
 	object-fit:contain;
+}
+/*幅対応*/
+@media(max-width:40em){
+	body,#main,#result{width:100%}
+	#main,#result{margin:0}
+	#side{display:none}
 }
