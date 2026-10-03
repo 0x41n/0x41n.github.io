@@ -23,12 +23,15 @@
     "list": "true"
   },
   {
+    "title": "役立つソフトたち",
     "description": "自分用のリンク集。",
+    "created": "2023-07-08",
+    "updated": "2026-08-30",
     "tags": [
-      ""
+      "list"
     ],
     "url": "0N78",
-    "list": false
+    "list": "true"
   },
   {
     "title": "「カエルはカエる」の話",
