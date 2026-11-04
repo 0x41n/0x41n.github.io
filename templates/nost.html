@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>{title}</title>
+<meta charset=UTF-8>
+<link rel=stylesheet href=../css/nost.css>
+<link rel=stylesheet href=../css/icon.css>
+<link rel=stylesheet href=../css/app.css>
+<link rel=icon type=image/svg+xml href=https://0x41n.github.io/file/fav.svg>
+<meta name=viewport content='width=device-width, initial-scale=1.0'>
+</head>
+<body>
+<div id=x41n></div>
+<div id=head>
+<p class=h2>{title}</p>
+<small id=date>
+{if created}<i class=i-edit></i> {created}{/if}
+{if updated}・<i class=i-update></i> {updated}{/if}</small>
+{if tags}<small id=tag>{tags}</small>{/if}
+</div>
+<div style='display:flex'>
+<div id=main>{body}</div>
+<div id=side>
+	<div class=toc id=misc>
+	<div style='border-bottom:var(--border)'>目次</div>{toc}</div>
+</div>
+</div>
+<div id=foot></div>
+<div class=modal onclick=closeModal()></div>
+</body>
+</html>
